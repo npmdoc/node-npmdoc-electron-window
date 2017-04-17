@@ -1,0 +1,219 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/jprichardson/electron-window">electron-window (v0.8.1)</a>
+</h1>
+<h4>Convenience methods for Electron windows.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.electron-window">module electron-window</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">electron-window.</span>args</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">electron-window.</span>renderer</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.electron-window.args">module electron-window.args</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.electron-window.args.encode">
+            function <span class="apidocSignatureSpan">electron-window.args.</span>encode
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.electron-window.args.urlWithArgs">
+            function <span class="apidocSignatureSpan">electron-window.args.</span>urlWithArgs
+            <span class="apidocSignatureSpan">(urlOrFile, args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.electron-window.renderer">module electron-window.renderer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.electron-window.renderer.parseArgs">
+            function <span class="apidocSignatureSpan">electron-window.renderer.</span>parseArgs
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.electron-window" id="apidoc.module.electron-window">module electron-window</a></h1>
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.electron-window.args" id="apidoc.module.electron-window.args">module electron-window.args</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.electron-window.args.encode" id="apidoc.element.electron-window.args.encode">
+        function <span class="apidocSignatureSpan">electron-window.args.</span>encode
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode(args) {
+  args = args || null
+  assert.strictEqual(typeof args, 'object', 'args must be an object')
+  // stringify the args
+  args = args ? encodeURIComponent(JSON.stringify(args)) : ''
+  return args
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.electron-window.args.urlWithArgs" id="apidoc.element.electron-window.args.urlWithArgs">
+        function <span class="apidocSignatureSpan">electron-window.args.</span>urlWithArgs
+        <span class="apidocSignatureSpan">(urlOrFile, args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function urlWithArgs(urlOrFile, args) {
+  args = encode(args)
+
+  var u
+  if (urlOrFile.indexOf('http') === 0 || urlOrFile.indexOf('data') === 0) {
+    var urlData = url.parse(urlOrFile)
+    var hash = urlData.hash || args ? args : undefined
+    u = url.format(Object.assign(urlData, { hash: hash }))
+  } else { // presumably a file url
+    u = url.format({
+      protocol: 'file',
+      pathname: path.resolve(urlOrFile),
+      slashes: true,
+      hash: args || undefined
+    })
+  }
+
+  return u
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.electron-window.renderer" id="apidoc.module.electron-window.renderer">module electron-window.renderer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.electron-window.renderer.parseArgs" id="apidoc.element.electron-window.renderer.parseArgs">
+        function <span class="apidocSignatureSpan">electron-window.renderer.</span>parseArgs
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseArgs() {
+  if (!window.location.hash) {
+    window.__args__ = {}
+  } else {
+    var hash = window.location.hash.slice(1)
+    window.__args__ = Object.freeze(JSON.parse(decodeURIComponent(hash)))
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+```
+
+**renderer process**
+
+```js
+// only call if `preload` is set in `windowOptions`
+require('electron-window').<span class="apidocCodeKeywordSpan">parseArgs</span>()
+
+console.log(window.__args__)
+// =&gt; Object {data: "some secret data"}
+```
+
+
+License
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
