@@ -1,4 +1,7 @@
-# api documentation for  [electron-window (v0.8.1)](https://github.com/jprichardson/electron-window)  [![npm package](https://img.shields.io/npm/v/npmdoc-electron-window.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-electron-window) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-electron-window.svg)](https://travis-ci.org/npmdoc/node-npmdoc-electron-window)
+# npmdoc-electron-window
+
+#### basic api documentation for  [electron-window (v0.8.1)](https://github.com/jprichardson/electron-window)  [![npm package](https://img.shields.io/npm/v/npmdoc-electron-window.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-electron-window) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-electron-window.svg)](https://travis-ci.org/npmdoc/node-npmdoc-electron-window)
+
 #### Convenience methods for Electron windows.
 
 [![NPM](https://nodei.co/npm/electron-window.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/electron-window)
@@ -65,7 +68,8 @@
     "scripts": {
         "test": "standard && find ./lib -name *.test.js | xargs mocha"
     },
-    "version": "0.8.1"
+    "version": "0.8.1",
+    "bin": {}
 }
 ```
 
